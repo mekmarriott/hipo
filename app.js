@@ -35,7 +35,7 @@ var appInfo = JSON.parse(process.env.VCAP_APPLICATION || "{}");
 
 // render index page
 app.get('/', function(req, res){
-	res.render('index.ejs');
+	res.render('home.ejs');
 });
 
 // render visuals
