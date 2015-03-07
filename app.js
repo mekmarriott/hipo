@@ -12,12 +12,12 @@ var app = express();
 app.use(app.router);
 app.use(express.errorHandler());
 app.use(express.static(__dirname + '/public')); //setup static public directory
-app.set('view engine', 'jade');
+app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views'); //optional since express defaults to CWD/views
 
 // render index page
 app.get('/', function(req, res){
-	res.render('index');
+	res.render('index.ejs');
 });
 
 // There are many useful environment variables available in process.env.
@@ -29,7 +29,17 @@ var appInfo = JSON.parse(process.env.VCAP_APPLICATION || "{}");
 // this application. For details of its content, please refer to
 // the document or sample of each service.
 var services = JSON.parse(process.env.VCAP_SERVICES || "{}");
-// TODO: Get service credentials and communicate with bluemix services.
+//service name, check the VCAP_SERVICES in Bluemix to get the name of the services you have
+  var service_name = 'tradeoff_analytics';
+ 
+  if (services[service_name]) {
+    var svc = services[service_name][0].credentials;
+    service_url = svc.url;
+    service_username = svc.username;
+    service_password = svc.password;
+  } else {
+    console.log('The service '+ service_name +' is not in the VCAP_SERVICES. Did you forget to bind it?');
+  }
 
 // The IP address of the Cloud Foundry DEA (Droplet Execution Agent) that hosts this application:
 var host = (process.env.VCAP_APP_HOST || 'localhost');

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LoadTest</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Respoke client library -->
+    <script src="https://cdn.respoke.io/respoke.min.js"></script>
+    <!-- jQuery, for this example -->
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" media="screen">
+      <style>
+      .container {
+        max-width: 1000px;
+      }
+    </style>
+  </head>
+  <body>
+    <h3 id="status">Not Connected</h3>
+    <div id="login">
+      User Name:
+      <input id="endpoint" type="text" />
+      <input id="doLogin" type="button" value="Connect" />
+    </div>
+
+    <div id="messaging">
+      <ul id="messages"></ul><br />
+      Send To:
+      <input id="remoteId" type="text" /><br />
+      <textarea id="textToSend" rows="2"></textarea><br />
+      <input id='sendMessage' type='button' value='Send Message' />
+      <input id='makeCall' type='button' value='Audio Call' />
+      <input id='endCall' type='button' value='Hang Up' />
+    </div>
+
+    <!-- the person you called -->
+    <div id="remoteVideoSource"></div>
+
+    <!-- you -->
+    <div id="localVideoSource"></div>
+    <script>
+      // here's the App ID value from the portal:
+      var appid = "99ce10c0-f2b3-4337-8c62-5d0b48cff616";
+
+      // create a client object using the App ID value from Step 2
+      var client = respoke.createClient({
+          appId: appid,
+          baseURL: "https://api.respoke.io",
+          developmentMode: true
+      });
+      var call = null;
+      // listen for the 'connect' event
+      client.listen('connect', function () {
+          $("#status").html("Connected to Respoke!");
+      });
+      // now connect when the user clicks the 'Connect' button
+      $("#doLogin").click(function () {
+          var endpoint = $("#endpoint").val();
+          client.connect({
+              endpointId: endpoint // your username is the endpoint
+          });
+      });
+      // listen for incoming messages
+      client.listen('message', function(evt) {
+          $("#messages").append(
+              "<li>" + evt.message.message + "</li>"
+          );
+      });
+      $("#sendMessage").click(function (){
+          // get the recipient name
+          var remote = $("#remoteId").val();
+          // make an endpoint for that recipient
+          var endpoint = client.getEndpoint({ id: remote });
+          // grab the text to send
+          var messageText = $("#textToSend").val();
+          // send it
+          endpoint.sendMessage({ message : messageText });
+          // show yourself the message
+          $("#messages").append(
+              "<li>" + messageText + "</li>"
+          );
+          // clear the text you just sent
+          $("#textToSend").val('');
+      });
+
+      function setVideo(elementId, videoElement) {
+          var videoParent = document.getElementById(elementId);
+          videoParent.innerHTML = "";
+          videoParent.appendChild(videoElement);
+      }
+      var callOptions = {
+          constraints: {audio: true, video: true},
+          // your video
+          onPreviewLocalMedia: function(evt) {
+              setVideo('localVideoSource', evt.element)
+          },
+          // your video
+          onLocalMedia: function(evt) {
+              setVideo('localVideoSource', evt.element)
+          },
+
+          // their video
+          onConnect: function(evt) {
+              setVideo('remoteVideoSource', evt.element)
+          }
+      };
+
+      // listen for, and answer, incoming calls
+      client.listen('call', function(evt) {
+          call = evt.call;
+          if (call.caller !== true) {
+              call.answer(callOptions);
+              call.listen('hangup', function () {
+                  call = null;
+              });
+          }
+      });
+
+      // $scope.client.listen('call', function(evt) {
+      //     $scope.activeCall = evt.call;
+
+      //     if ($scope.activeCall.caller !== true) {
+      //         $scope.activeCall.answer(callOptions);
+
+      //         // The hangup event indicates the call is over
+      //         $scope.activeCall.listen('hangup', function () {
+      //             $scope.activeCall = null;
+      //             $scope.$apply();
+      //         });
+      //     }
+      //     $scope.$apply();
+      // });
+      // Call somebody
+      $("#makeCall").click(function () {
+          var endpoint = client.getEndpoint({ id: $("#remoteId").val() });
+          call = endpoint.startVideoCall(callOptions);
+          call.listen('hangup', function () {
+              call = null;
+          });
+      });
+      // Hang up on them
+      $("#endCall").click(function () {
+          if (call) {
+              call.hangup();
+              call = null;
+          }
+      });
+
+      // $scope.call = function () {
+      //     var recipientEndpoint = $scope.client.getEndpoint({ id: $scope.friendId });
+      //     $scope.activeCall = recipientEndpoint.startVideoCall(callOptions);
+      // };
+
+      // // provide a way to escape
+      // $scope.hangup = function () {
+      //     $scope.activeCall.hangup();
+      //     $scope.activeCall = null;
+      // };
+
+    </script>
+  </body>
+</html>
