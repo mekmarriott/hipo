@@ -115,20 +115,6 @@
           }
       });
 
-      // $scope.client.listen('call', function(evt) {
-      //     $scope.activeCall = evt.call;
-
-      //     if ($scope.activeCall.caller !== true) {
-      //         $scope.activeCall.answer(callOptions);
-
-      //         // The hangup event indicates the call is over
-      //         $scope.activeCall.listen('hangup', function () {
-      //             $scope.activeCall = null;
-      //             $scope.$apply();
-      //         });
-      //     }
-      //     $scope.$apply();
-      // });
       // Call somebody
       $("#makeCall").click(function () {
           var endpoint = client.getEndpoint({ id: $("#remoteId").val() });
@@ -144,17 +130,6 @@
               call = null;
           }
       });
-
-      // $scope.call = function () {
-      //     var recipientEndpoint = $scope.client.getEndpoint({ id: $scope.friendId });
-      //     $scope.activeCall = recipientEndpoint.startVideoCall(callOptions);
-      // };
-
-      // // provide a way to escape
-      // $scope.hangup = function () {
-      //     $scope.activeCall.hangup();
-      //     $scope.activeCall = null;
-      // };
 
     </script>
   </body>
