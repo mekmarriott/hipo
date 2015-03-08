@@ -93,6 +93,10 @@
 	    var BP_LOINC = "55284-4";
 	    var STEPS_LOINC = "41950-7";
 	    var ATC_LOINC = "4548-4";
+	    var SYS_LOINC = "8480-6";
+	    var DIAS_LOINC = "8462-4";
+	    var MEAN_LOINC = "8478-0";
+
 		var token = null;
 		var patient_id = null;
 		var logged_in = false;
@@ -114,6 +118,11 @@
 			$("#conference-videos").each(function() {
 			      $(this).show();
 			});
+		})
+
+		$("#analyze").click(function(){
+			console.log("pressed analyze");
+			callWatson();
 		})
 
 		init();
@@ -186,12 +195,15 @@
 	            	$("#charts").each(function() {
 					      $(this).show();
 					});
-					getPatientObservations(GLUCOSE_LOINC);
-					getPatientObservations(HR_LOINC);
-					getPatientObservations(WEIGHT_LOINC);
-					getPatientObservations(BP_LOINC);
-					getPatientObservations(STEPS_LOINC);
-					getPatientObservations(ATC_LOINC);
+					// getPatientObservations(GLUCOSE_LOINC);
+					// getPatientObservations(HR_LOINC);
+					// getPatientObservations(WEIGHT_LOINC);
+					// getPatientObservations(BP_LOINC);
+					// getPatientObservations(STEPS_LOINC);
+					// getPatientObservations(ATC_LOINC);
+					getPatientObservations(SYS_LOINC);
+					getPatientObservations(DIAS_LOINC);
+					getPatientObservations(MEAN_LOINC);
 					plotCharts();
 	            },
 	            error: function(e) {
@@ -422,6 +434,33 @@
 		    var d = document.getElementById('d').getContext('2d');
 		    new Chart(d).Line(dData);
 	    }
+
+        function callWatson() {
+        	var result = null;
+            $.getJSON(path, function(data) {
+		      result = data
+		    });
+
+            $.ajax({
+                type: 'POST',
+                url: '/watson',
+                contentType: 'application/json',
+                data: JSON.stringify(result),
+                dataType: "text",
+                headers: {},
+
+                success: function(result) {
+                  console.log("success");
+                  console.dir(result);
+                  // callback(result);
+                },
+
+                error: function(e) {
+                  console.log("[ERROR]");
+                  // callback(undefined, e);
+                }
+            });
+        }
 	</script>
   	</body>
 </html>
