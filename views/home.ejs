@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>LoadTest</title>
+    <title>HIPO</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- ooVoo script -->
 	<script src="https://code.oovoo.com/webrtc/oovoosdk-2.0.0.min.js"></script>
     <!-- jQuery, for this example -->
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="./socket.io/socket.io.js"></script>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" media="screen">
       <style>
       .container {
@@ -16,20 +17,119 @@
   </head>
   <body>
     <h3 id="status">Not Connected</h3>
-    <div id="login">
+    <div id="userboard">
       User Name:
-      <input id="endpoint" type="text" />
-      <input id="doLogin" type="button" value="Connect" />
+      <input id="username" type="text" value="sam.s.smith"/>
+      Password
+      <input id="password" type="text" value="MyFood4Health!"/>
+      <input id="login" type="button" value="Login" />
+      <input id="connect" type="button" value="Connect" />
     </div>
+    <p id = "token"></p>
 
 
   	<script type="text/javascript">
 		var participantId = null;
-		
-		$("#doLogin").click(function () {
-			participantId = $("#endpoint").val();
-			startVideo();
+		var participantName = null;
+		var socket = io(window.location.href);
+		var CONSUMER_KEY = "L11NZgGCutWQkt4F4gMch0GBdW3tFTMd";
+		var CONSUMER_SECRET = "GR2ohAlmJqjGJSlB";
+		var BASE_URL = "https://gateway.api.pcftest.com:9004"; // HTTPS url
+		var BASE_URL_GET_TOKEN = BASE_URL + "/v1/oauth2/token?grant_type=client_credentials";
+		var BASE_URL_LOGIN = BASE_URL + "/v1/oauth2/authorize/login";
+		var BASE_URL_LOGOUT = BASE_URL + "/v1/oauth2/authorize/logout";
+		var BASE_FHIR_INFO_URL = BASE_URL + "/v1/fhir_rest";
+		var BASE_URL_PATIENT = BASE_FHIR_INFO_URL + "/Patient/";
+		var BASE_URL_ORGANIZATION = BASE_FHIR_INFO_URL + "/Organization/";
+		var BASE_URL_OBSERVATION = BASE_FHIR_INFO_URL + "/Observation";
+		var token = null;
+		var patient_id = null;
+
+		socket.on('welcome', function (data) {
+            console.log("message: " + data.message);
+        });
+
+		$("#login").click(function () {
+			var username = $("#username").val();
+			var password = $("#password").val();
+			authorize(username, password);
 		})
+
+		$("#connect").click(function(){
+			console.log("pressed connect");
+			startVideo();
+			$("#status").html("Connected to HIPO sesh!");
+		})
+
+		function authorize(username, password){
+			console.log("authorizing...");
+			var encodedData = window.btoa(CONSUMER_KEY + ":" + CONSUMER_SECRET);
+			$.ajax({
+	            crossDomain: true,
+	            type:"POST",
+	            url: BASE_URL_GET_TOKEN,
+	        	headers: {'Authorization': 'Basic ' + encodedData},
+	            success: function(result) {
+	              token = result.access_token;
+	              console.log("authorized!");
+	              // $("#token").html(token);
+	              clientLogin(username,password);
+	            },
+	            error: function(e) {
+	              console.log("[ERROR]");
+	            }
+	        });
+		}
+
+		function clientLogin(username,password) {
+			console.log(token);
+			var loginDetails = {
+	        		'username':username,
+	        		'password':password,
+	        	};
+	        console.dir(loginDetails);
+			$.ajax({
+	            crossDomain: true,
+	            type:'POST',
+	            url: BASE_URL_LOGIN,
+	        	headers: {'Authorization': 'Bearer ' + token},
+	        	contentType: 'application/json',
+                data: JSON.stringify(loginDetails),
+                dataType: 'json',
+	            success: function(result) {
+	              console.log("Success");
+	              console.dir(result);
+	              patient_id = result.user.id;
+	              console.log(token);
+	              getPatient(token);
+	            },
+	            error: function(e) {
+	              console.log("[ERROR]");
+	            }
+	        });
+			$("#status").html("Logged In!");
+		}
+
+		/* The patient function retrieves individual patient demographic data. */
+		function getPatient(token){
+			console.log("Getting patient");
+			console.log(token);
+			console.log(patient_id);
+			$.ajax({
+	            crossDomain: true,
+	            type:'GET',
+	            cache: true,
+	            url: BASE_URL_PATIENT + patient_id,
+	        	headers: {'Authorization':'Bearer ' + token,'Accept':'application/json'},
+	            success: function(result) {
+	              console.log("Success");
+	              console.dir(result);
+	            },
+	            error: function(e) {
+	              console.log("[ERROR]");
+	            }
+	        });
+		};
 
 	    var conference = null;
 	    var conferenceId = "HIPO_SESH";
@@ -38,15 +138,14 @@
 	    var participantId = getQSParam("pid");
 
 	    function startVideo(){
-	    	console.log("starting video...")
 	        if (!sessionToken) {
 	            //for example (get random id)
 	            if (participantId == null){
 	            	participantId = Math.floor(Math.random() * 9999999999) + 1000000000;
 	            }
 
-	            var redirectUrl = "url to send response with the session token"
-	            redirectUrl = location.href + "?pid=" + participantId;
+	            // var redirectUrl = "url to send response with the session token"
+	            var redirectUrl = location.href + "?pid=" + participantId;
 	            ooVoo.API.connect({
 		            token: appToken,
 		            isSandbox: true,
@@ -75,7 +174,7 @@
 
 	            conference.setConfig({
 		            videoResolution: ooVoo.API.VideoResolution["HIGH"],
-		            videoFrameRate: new Array(5, 15)
+		            videoFrameRate: new Array(15, 30)
 	        	}, function (res) {
 		            if (!res.error) {
 			            conference.join(conferenceId, participantId, sessionToken, "participant name", function (result) { });

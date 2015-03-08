@@ -10,7 +10,11 @@ var express = require('express'),
 	TradeoffAnalytics = require('./tradeoff-analytics'),
 	auth = require('./config/auth'),
 	extend = require('util')._extend,
-	app = express();
+	app = express(),
+	socketio = require('socket.io'),
+	socket = require('./socket.js'),
+	http = require('http'),
+	request = require('request');
 
 // setup middleware
 app.use(app.router);
@@ -19,15 +23,6 @@ app.use(express.static(__dirname + '/public')); //setup static public directory
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views'); //optional since express defaults to CWD/views
 
-// if bluemix credentials exists, then override local
-var credentials = extend({
-  url: auth.bluemix.url,
-  username: auth.bluemix.username,
-  password: auth.bluemix.password
-}, bluemix.getServiceCreds('tradeoff_analytics')); // VCAP_SERVICES
-
-// Create the service wrapper
-var tradeoffAnalytics = new TradeoffAnalytics(credentials);
 
 // There are many useful environment variables available in process.env.
 // VCAP_APPLICATION contains useful information about a deployed application.
@@ -38,15 +33,6 @@ app.get('/', function(req, res){
 	res.render('home.ejs');
 });
 
-// render visuals
-app.post('/', function(req, res) {
-  tradeoffAnalytics.dilemmas(req.body, function(err, dilemmas) {
-    if (err)
-      return res.status(500).json({ error: 'Error processing the request.' });
-    else
-      return res.json(dilemmas);
-  });
-});
 // VCAP_SERVICES contains all the credentials of services bound to
 // this application. For details of its content, please refer to
 // the document or sample of each service.
@@ -68,6 +54,11 @@ var host = (process.env.VCAP_APP_HOST || 'localhost');
 // The port on the DEA for communication with the application:
 var port = (process.env.VCAP_APP_PORT || 3000);
 // Start server
-app.listen(port, host);
-console.log('App started on port ' + port);
+server = http.createServer(app).listen(port, function () {
+	console.log('App started on port ' + port);
+});
+
+socket.listen(server);
+// app.listen(port, host);
+// console.log('App started on port ' + port);
 
