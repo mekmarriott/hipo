@@ -19,9 +19,9 @@
   	<div class="container">
 
   		<!-- HEADER -->
-  		<div id="user-display">
-  			<span class="fa fa-user"></span>
+  		<div id="user-display" class="well">
   			<!-- ********don't change the input divs for username, password, or login -->
+  			<span class="glyphicon glyphicon-user"></span>
 	      	User Name: <input id="username" type="text" value="sam.s.smith"/>
 	      	Password: <input id="password" type="password" value="MyFood4Health!"/>
 	      	<input id="login" type="button" value="Login" />
@@ -37,10 +37,8 @@
 		    <!-- VIDEO CONFERENCING -->
 		    	<!-- ********don't change the id values for these -->
 		    	<div class="row">
-		    		<h2 id="status">Not Connected</h2>
-		    	</div>
-		    	<div class="row">
-		    		<input id="connect" type="button" value="Connect" />
+		    		<input class="btn btn-default" id="connect" type="button" value="Connect" />
+		    		</br>
 		    	</div>
 		    	<div class="row" id="conference-videos">
 	            	<video id="localVideo" align="center" style="width:300px; height:auto;" autoplay muted></video>
@@ -136,7 +134,6 @@
 	              console.log("[ERROR]");
 	            }
 	        });
-			$("#status").html("Logged In!");
 		}
 
 		/* The patient function retrieves individual patient demographic data. */
