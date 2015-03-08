@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- ooVoo script -->
 	<script src="https://code.oovoo.com/webrtc/oovoosdk-2.0.0.min.js"></script>
-    <!-- jQuery, for this example -->
-    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="./socket.io/socket.io.js"></script>
+    <!-- jQuery, for this example  
+-->
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" media="screen">
       <style>
       .container {
@@ -29,9 +30,9 @@
 
 
   	<script type="text/javascript">
-		var participantId = null;
+		var participantId = "UNKNOWN";
 		var participantName = null;
-		var socket = io(window.location.href);
+		// var socket = io(window.location.href);
 		var CONSUMER_KEY = "L11NZgGCutWQkt4F4gMch0GBdW3tFTMd";
 		var CONSUMER_SECRET = "GR2ohAlmJqjGJSlB";
 		var BASE_URL = "https://gateway.api.pcftest.com:9004"; // HTTPS url
@@ -41,13 +42,14 @@
 		var BASE_FHIR_INFO_URL = BASE_URL + "/v1/fhir_rest";
 		var BASE_URL_PATIENT = BASE_FHIR_INFO_URL + "/Patient/";
 		var BASE_URL_ORGANIZATION = BASE_FHIR_INFO_URL + "/Organization/";
-		var BASE_URL_OBSERVATION = BASE_FHIR_INFO_URL + "/Observation";
+		var BASE_URL_OBSERVATION = BASE_FHIR_INFO_URL + "/Observation/";
+		var GLUCOSE_LOINC = "2339-0";
 		var token = null;
 		var patient_id = null;
 
-		socket.on('welcome', function (data) {
-            console.log("message: " + data.message);
-        });
+		// socket.on('welcome', function (data) {
+  //           console.log("message: " + data.message);
+  //       });
 
 		$("#login").click(function () {
 			var username = $("#username").val();
@@ -58,7 +60,6 @@
 		$("#connect").click(function(){
 			console.log("pressed connect");
 			startVideo();
-			$("#status").html("Connected to HIPO sesh!");
 		})
 
 		function authorize(username, password){
@@ -102,6 +103,7 @@
 	              patient_id = result.user.id;
 	              console.log(token);
 	              getPatient(token);
+	              getPatientObservations();
 	            },
 	            error: function(e) {
 	              console.log("[ERROR]");
@@ -118,7 +120,6 @@
 			$.ajax({
 	            crossDomain: true,
 	            type:'GET',
-	            cache: true,
 	            url: BASE_URL_PATIENT + patient_id,
 	        	headers: {'Authorization':'Bearer ' + token,'Accept':'application/json'},
 	            success: function(result) {
@@ -131,6 +132,24 @@
 	        });
 		};
 
+		function getPatientObservations(){
+			console.log("Getting Observation");
+			$.ajax({
+	            crossDomain: true,
+	            type:'GET',
+	            url: BASE_URL_OBSERVATION + '?subject:_id=' + patient_id + '&name=' + GLUCOSE_LOINC + '&_sort:asc=date&_count=25',
+	        	headers: {'Authorization':'Bearer ' + token,'Accept':'application/json'},
+	            success: function(result) {
+	              console.log("Success");
+	              console.log(JSON.stringify(result));
+	            },
+	            error: function(e) {
+	              console.log("[ERROR]");
+	            }
+	        });
+
+		}
+
 	    var conference = null;
 	    var conferenceId = "HIPO_SESH";
 	    var appToken = "MDAxMDAxAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADF7zL74a91r5c5XhVPaKI8NsD%2FUf1lCppztbs6DkNESIQ%2Bv1%2BiDYB0c%2F%2Fi7MANPuNT0jSxNyCoZjHYtrdpe%2FqwQ8NBK1Aw5J3RQOEme%2BMKFmudDp0pxGeviTgdP3Dh%2Bqo%3D";
@@ -138,13 +157,9 @@
 	    var participantId = getQSParam("pid");
 
 	    function startVideo(){
+	    	console.log("starting video");
 	        if (!sessionToken) {
-	            //for example (get random id)
-	            if (participantId == null){
-	            	participantId = Math.floor(Math.random() * 9999999999) + 1000000000;
-	            }
-
-	            // var redirectUrl = "url to send response with the session token"
+	            participantId = Math.floor(Math.random() * 9999999999) + 1000000000;
 	            var redirectUrl = location.href + "?pid=" + participantId;
 	            ooVoo.API.connect({
 		            token: appToken,
@@ -152,10 +167,12 @@
 		            userId: participantId,
 		            callbackUrl: redirectUrl
 	            });
+	            $("#status").html("Connected to HIPO sesh!");
 	        }
 	        else {
+	        	console.log("starting with existing session token");
 	            ooVoo.API.init({
-	            userToken: sessionToken
+	            	userToken: sessionToken
 	            }, onAPI_init);
 	        }
 	    }
