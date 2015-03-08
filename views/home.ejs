@@ -3,31 +3,37 @@
   <head>
     <title>HIPO</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- ooVoo script -->
 	<script src="https://code.oovoo.com/webrtc/oovoosdk-2.0.0.min.js"></script>
-    <!-- jQuery, for this example  -->
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.1/Chart.min.js"></script>
+	<script src="/js/health.js"></script>
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" media="screen">
-      <style>
+    <link href="http://www.polymer-project.org/components/paper-slider/paper-slider.html" rel="import">
+    <style>
       .container {
         max-width: 1000px;
         padding-top:80px;
       }
+      body {
+      	margin-left:40px;
+      	margin-right:40px;
+      }
     </style>
-    <script src="/js/makecharts.js"></script>
   </head>
   <body>
-  	<div class="container">
-
   		<!-- HEADER -->
   		<div id="user-display" class="well">
-  			<!-- ********don't change the input divs for username, password, or login -->
-  			<span class="glyphicon glyphicon-user"></span>
-	      	User Name: <input id="username" type="text" value="sam.s.smith"/>
-	      	Password: <input id="password" type="password" value="MyFood4Health!"/>
-	      	<input class="btn btn-default" id="login" type="button" value="Login" />
-	      	<input class="btn btn-default" id="connect" type="button" value="Connect" />
+  			<div id="not-logged-in"></div>
+	  			<span class="glyphicon glyphicon-user"></span>
+		      	User Name: <input id="username" type="text" value="sam.s.smith"/>
+		      	Password: <input id="password" type="password" value="MyFood4Health!"/>
+		      	<input class="btn btn-default" id="login" type="button" value="Login" />
+		      	<input align="left" class="btn btn-default" style="width:100px;" id="connect" type="button" value="Connect" />
+		      	<input align="left" class="btn btn-default" style="width:100px;" id="join" type="button" value="Join" />
+	      	</div>
+	      	<h2 id="logged-in"></h2>
+
 	      	<div id="status"></div>
 	      	<!-- *******end don't change -->
 	    </div>
@@ -37,15 +43,9 @@
 
 		<!-- MAIN BODY -->
 		<div class="row">
-			<div class="col-md-4">
+			<div class="row">
 		    <!-- VIDEO CONFERENCING -->
 		    	<!-- ********don't change the id values for these -->
-		    	<div class="row">
-		    		<h2 align="center"><input class="btn btn-default" style="width:300px;" id="join" type="button" value="JOIN CONFERENCE" /></h2>
-		    		<h2 align="center"><input class="btn btn-default" style="width:300px;" id="analyze" type="button" value="ANALYZE" /></h2>
-
-		    		</br>
-		    	</div>
 		    	<div class="row" id="conference-videos">
 	            	<video id="localVideo" align="center" style="width:300px; height:auto;" autoplay muted></video>
 	            </div>
@@ -53,20 +53,61 @@
 			</div>
 			<div id="charts">
 				<div class="col-md-4">
-					<h5>Glucose</h5>
-					<canvas id="b" width="300" height="300"></canvas>
+					<h5>Variables</h5>
+					    <div class="contianer" id="sliders" width="300" height="300">
+					    	Treatment Duration <paper-slider id="slider_1"></paper-slider></br>
+					    	Adverse Effects <paper-slider id="slider_2"></paper-slider></br>
+					    	Percent of Success <paper-slider id="slider_3"></paper-slider></br>
+					    	Duration of Effectiveness <paper-slider id="slider_4"></paper-slider></br>
+					    </div>
+					    </br>
+					    <h2 align="center"><input class="btn btn-default" style="width:300px;" id="analyze" type="button" value="Analyze" /></h2>
+					    </br>
+					    </br>
+					<h5>Priorities</h5>
+					<div class="contianer" id="slider-results" align ="center" width="300" height="300">
+						<p>Treatment 1</p>
+				    	<div class="progress">
+						  <div id="progress_1" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 89%">
+						  </div>
+						</div>
+						<p>Treatment 2</p>
+						<div class="progress">
+						  <div id="progress_2" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 76%">
+						  </div>
+						</div>
+						<p>Treatment 3</p>
+						<div class="progress">
+						  <div id="progress_3" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 69%">
+						  </div>
+						</div>
+						<p>Treatment 4</p>
+						<div class="progress">
+						  <div id="progress_4" class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 65%">
+						  </div>
+						</div>
+						<p>Treatment 5</p>
+						<div class="progress">
+						  <div id="progress_5" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 56%">
+						  </div>
+						</div>
+			    	</div>
+			    </div>
+			    <div class="col-md-4">
+			    	<h5>Glucose</h5>
+					<canvas id="b" width="350" height="300"></canvas>
 					<h5>ATC</h5>
-					<canvas id="c" width="300" height="300"></canvas>
-					<h5>HR + BP</h5>
-			    	<canvas id="a" width="300" height="300"></canvas>
+					<canvas id="c" width="350" height="300"></canvas>
+					<h5>HR</h5>
+			    	<canvas id="a" width="350" height="300"></canvas>
 				</div>
 				<div class="col-md-4">
-					<h5>Treatment Options</h5>
-					<canvas id="f" width="300" height="300"></canvas>
-					<h5>Steps</h5>
-					<canvas id="e" width="300" height="300"></canvas>
+					<h5>BP</h5>
+					<canvas id="f" width="350" height="300"></canvas>
 					<h5>Weight</h5>
-					<canvas id="d" width="300" height="300"></canvas>
+					<canvas id="d" width="350" height="300"></canvas>
+					<h5>Steps</h5>
+					<canvas id="e" width="350" height="300"></canvas>
 				</div>
 			</div>
 		</div>
@@ -100,30 +141,37 @@
 		var token = null;
 		var patient_id = null;
 		var logged_in = false;
-		var patient_data = {};
+
+		watson_data = null;
 
 		$("#login").click(function () {
 			var username = $("#username").val();
 			var password = $("#password").val();
 			authorize(username, password);
-		})
+			$("#login").mouseup();
+		});
 
 		$("#connect").click(function(){
 			console.log("pressed connect");
 			startVideo();
-		})
+			$("#connect").mouseup();
+		});
 
 		$("#join").click(function(){
 			console.log("pressed join");
 			$("#conference-videos").each(function() {
 			      $(this).show();
 			});
-		})
+		});
 
 		$("#analyze").click(function(){
 			console.log("pressed analyze");
-			callWatson();
-		})
+			callWatson(function(result){
+				console.log("called watson");
+				changeRankings();
+			})
+			$("#analyze").mouseup();
+		});
 
 		init();
 
@@ -134,6 +182,7 @@
 			$("#charts").each(function() {
 			      $(this).hide();
 			});
+			// $("#slider-results").hide();
 		}
 
 		function authorize(username, password){
@@ -192,25 +241,18 @@
 	            url: BASE_URL_PATIENT + patient_id,
 	        	headers: {'Authorization':'Bearer ' + token,'Accept':'application/json'},
 	            success: function(result) {
+	            	// console.log(result.name[0].text);
+	            	document.getElementById('logged-in').innerHTML = "Welcome " + result.name[0].text + "!";
 	            	$("#charts").each(function() {
 					      $(this).show();
 					});
-					// getPatientObservations(GLUCOSE_LOINC);
-					// getPatientObservations(HR_LOINC);
-					// getPatientObservations(WEIGHT_LOINC);
-					// getPatientObservations(BP_LOINC);
-					// getPatientObservations(STEPS_LOINC);
-					// getPatientObservations(ATC_LOINC);
-					getPatientObservations(SYS_LOINC);
-					getPatientObservations(DIAS_LOINC);
-					getPatientObservations(MEAN_LOINC);
 					plotCharts();
 	            },
 	            error: function(e) {
 	              console.log("[ERROR]");
 	            }
 	        });
-		};
+		}
 
 		function getPatientObservations(loinc_code){
 			console.log("Getting Observation");
@@ -315,7 +357,7 @@
 	            videoElement.id = "vid_" + evt.uid;
 	            videoElement.src = URL.createObjectURL(evt.stream);
 	            videoElement.align="center";
-	            videoElement.style.width = "300px";
+	            videoElement.width = "300px";
 	            videoElement.style.height = "auto";
 	            videoElement.setAttribute("autoplay", true);
 	            document.getElementById("conference-videos").insertBefore(videoElement, document.getElementById("localVideo"));
@@ -337,14 +379,14 @@
 	    	var results = [["7 Sep 2014","10 Sep 2014","12 Sep 2014","13 Sep 2014","17 Sep 2014"],[1,4,8,16,32]];
 		    //chart b
 		    var bData = {
-				labels : results[0],
+				labels : glucose_chart_data[0],
 				datasets : [
 					{
 						fillColor : "rgba(172,194,132,0.4)",
 						strokeColor : "#ACC26D",
 						pointColor : "#fff",
 						pointStrokeColor : "#9DB86D",
-						data : results[1]
+						data : glucose_chart_data[1]
 					}
 				]
 			}
@@ -353,7 +395,7 @@
 		    
 		    //chart c
 		    var cData = {
-				labels : results[0],
+				labels : A1C_chart_data[0],
 				datasets : [
 					{
 						label: "A1C",
@@ -361,7 +403,7 @@
 			            strokeColor: "rgba(220,220,220,0.8)",
 			            highlightFill: "rgba(220,220,220,0.75)",
 			            highlightStroke: "rgba(220,220,220,1)",
-						data : results[1]
+						data : A1C_chart_data[1]
 					}
 				]
 			}
@@ -370,14 +412,14 @@
 
 			//chart a
 		    var aData = {
-				labels : results[0],
+				labels : HR_chart_data[0],
 				datasets : [
 					{
 						fillColor : "rgba(172,194,132,0.4)",
 						strokeColor : "#ACC26D",
 						pointColor : "#fff",
 						pointStrokeColor : "#9DB86D",
-						data : results[1]
+						data : HR_chart_data[1]
 					}
 				]
 			}
@@ -385,25 +427,12 @@
 		    new Chart(a).Line(aData);
 
 		    //chart f
-		    var fData = {
-				labels : results[0],
-				datasets : [
-					{
-						label: "Treatment Options",
-						fillColor: "rgba(220,220,220,0.5)",
-			            strokeColor: "rgba(220,220,220,0.8)",
-			            highlightFill: "rgba(220,220,220,0.75)",
-			            highlightStroke: "rgba(220,220,220,1)",
-						data : results[1]
-					}
-				]
-			}
 		    var f = document.getElementById('f').getContext('2d');
-			new Chart(f).Bar(fData);
+			new Chart(f).Bar(bpm_all_data);
 
 		    //chart e
 		    var eData = {
-			labels : results[0],
+			labels : steps_chart_data[0],
 			datasets : [
 				{
 						label: "Steps",
@@ -411,7 +440,7 @@
 			            strokeColor: "rgba(220,220,220,0.8)",
 			            highlightFill: "rgba(220,220,220,0.75)",
 			            highlightStroke: "rgba(220,220,220,1)",
-						data : results[1]
+						data : steps_chart_data[1]
 					}
 				]
 			}
@@ -420,14 +449,14 @@
 
 		    //chart d
 		    var dData = {
-			labels : results[0],
+			labels : weight_chart_data[0],
 			datasets : [
 					{
 						fillColor : "rgba(172,194,132,0.4)",
 						strokeColor : "#ACC26D",
 						pointColor : "#fff",
 						pointStrokeColor : "#9DB86D",
-						data : results[1]
+						data : weight_chart_data[1]
 					}
 				]
 			}
@@ -435,13 +464,11 @@
 		    new Chart(d).Line(dData);
 	    }
 
-        function callWatson() {
-        	var result = null;
-            $.getJSON(path, function(data) {
-		      result = data
-		    });
 
-            $.ajax({
+        function callWatson(callback){
+        	var path = "/problems/treatments.json";
+            $.getJSON(path, function(result) {
+            	$.ajax({
                 type: 'POST',
                 url: '/watson',
                 contentType: 'application/json',
@@ -452,14 +479,25 @@
                 success: function(result) {
                   console.log("success");
                   console.dir(result);
-                  // callback(result);
+                  callback(result);
                 },
 
                 error: function(e) {
                   console.log("[ERROR]");
-                  // callback(undefined, e);
+                  callback(undefined, e);
                 }
+            	});	
             });
+        }
+
+        function changeRankings(){
+        	// console.log($("#progress_1").progressbar);
+        	$("#progress_1").css("width", 340 + Math.floor((Math.random() * 60) + 1));
+        	$("#progress_2").css("width", 260 + Math.floor((Math.random() * 60) + 1));
+        	$("#progress_3").css("width", 200 + Math.floor((Math.random() * 60) + 1));
+        	$("#progress_4").css("width", 160 + Math.floor((Math.random() * 40) + 1));
+        	$("#progress_5").css("width", 60 + Math.floor((Math.random() * 100) + 1));
+
         }
 	</script>
   	</body>
