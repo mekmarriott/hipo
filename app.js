@@ -19,6 +19,7 @@ var express = require('express'),
 // setup middleware
 app.use(app.router);
 app.use(express.errorHandler());
+app.use(express.bodyParser());
 app.use(express.static(__dirname + '/public')); //setup static public directory
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views'); //optional since express defaults to CWD/views
@@ -28,9 +29,23 @@ app.set('views', __dirname + '/views'); //optional since express defaults to CWD
 // VCAP_APPLICATION contains useful information about a deployed application.
 var appInfo = JSON.parse(process.env.VCAP_APPLICATION || "{}");
 
+// if bluemix credentials exists, then override local
+var credentials = extend({
+  url: auth.bluemix.url,
+  username: auth.bluemix.username,
+  password: auth.bluemix.password
+}, bluemix.getServiceCreds('tradeoff_analytics')); // VCAP_SERVICES
+
+// Create the service wrapper
+var tradeoffAnalytics = new TradeoffAnalytics(credentials);
+
 // render index page
 app.get('/', function(req, res){
 	res.render('home.ejs');
+});
+
+app.post('/glucose', express.bodyParser(), function(req, res){
+	console.log(req.body);
 });
 
 
