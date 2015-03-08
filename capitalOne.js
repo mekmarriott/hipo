@@ -1,4 +1,3 @@
-
 var xhr = new XMLHttpRequest();
 var user ='struggling';
 var dataType = 'ProjectedForMonth';

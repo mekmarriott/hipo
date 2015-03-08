@@ -7,13 +7,15 @@
 	<script src="https://code.oovoo.com/webrtc/oovoosdk-2.0.0.min.js"></script>
     <!-- jQuery, for this example  -->
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.1/Chart.min.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" media="screen">
       <style>
       .container {
         max-width: 1000px;
         padding-top:80px;
       }
     </style>
+    <script src="/js/makecharts.js"></script>
   </head>
   <body>
   	<div class="container">
@@ -24,7 +26,9 @@
   			<span class="glyphicon glyphicon-user"></span>
 	      	User Name: <input id="username" type="text" value="sam.s.smith"/>
 	      	Password: <input id="password" type="password" value="MyFood4Health!"/>
-	      	<input id="login" type="button" value="Login" />
+	      	<input class="btn btn-default" id="login" type="button" value="Login" />
+	      	<input class="btn btn-default" id="connect" type="button" value="Connect" />
+	      	<div id="status"></div>
 	      	<!-- *******end don't change -->
 	    </div>
 
@@ -37,7 +41,7 @@
 		    <!-- VIDEO CONFERENCING -->
 		    	<!-- ********don't change the id values for these -->
 		    	<div class="row">
-		    		<input class="btn btn-default" id="connect" type="button" value="Connect" />
+		    		<h2 align="center"><input class="btn btn-default" style="width:300px;" id="join" type="button" value="JOIN CONFERENCE" /></h2>
 		    		</br>
 		    	</div>
 		    	<div class="row" id="conference-videos">
@@ -45,15 +49,23 @@
 	            </div>
 	            <!-- *******end don't change -->
 			</div>
-			<div class="col-md-4">
-				<h2>THIS IS WHERE THE CHARTS GO</h2>
-				<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-				<p><a class="btn btn-default" href="#" role="button">See Recommendations &raquo;</a></p>
+			<div id="charts">
+				<div class="col-md-4">
+					<h5>Glucose</h5>
+					<canvas id="b" width="300" height="300"></canvas>
+					<h5>ATC</h5>
+					<canvas id="c" width="300" height="300"></canvas>
+					<h5>HR + BP</h5>
+			    	<canvas id="a" width="300" height="300"></canvas>
 				</div>
-			<div class="col-md-4">
-				<h2>THIS IS WHERE THE CHARTS GO</h2>
-				<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-				<p><a class="btn btn-default" href="#" role="button">See Recommendations &raquo;</a></p>
+				<div class="col-md-4">
+					<h5>Treatment Options</h5>
+					<canvas id="f" width="300" height="300"></canvas>
+					<h5>Steps</h5>
+					<canvas id="e" width="300" height="300"></canvas>
+					<h5>Weight</h5>
+					<canvas id="d" width="300" height="300"></canvas>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -74,8 +86,15 @@
 		var BASE_URL_ORGANIZATION = BASE_FHIR_INFO_URL + "/Organization/";
 		var BASE_URL_OBSERVATION = BASE_FHIR_INFO_URL + "/Observation/";
 		var GLUCOSE_LOINC = "2339-0";
+	    var HR_LOINC = "2339-0";
+	    var WEIGHT_LOINC = "2339-0";
+	    var BP_LOINC = "2339-0";
+	    var STEPS_LOINC = "2339-0";
+	    var ATC_LOINC = "2339-0";
 		var token = null;
 		var patient_id = null;
+		var logged_in = false;
+		var patient_data = {};
 
 		$("#login").click(function () {
 			var username = $("#username").val();
@@ -87,6 +106,24 @@
 			console.log("pressed connect");
 			startVideo();
 		})
+
+		$("#join").click(function(){
+			console.log("pressed join");
+			$("#conference-videos").each(function() {
+			      $(this).show();
+			});
+		})
+
+		init();
+
+		function init(){
+			$("#conference-videos").each(function() {
+			      $(this).hide();
+			});
+			$("#charts").each(function() {
+			      $(this).hide();
+			});
+		}
 
 		function authorize(username, password){
 			console.log("authorizing...");
@@ -124,11 +161,8 @@
                 dataType: 'json',
 	            success: function(result) {
 	              console.log("Success");
-	              console.dir(result);
 	              patient_id = result.user.id;
-	              console.log(token);
 	              getPatient(token);
-	              getPatientObservations();
 	            },
 	            error: function(e) {
 	              console.log("[ERROR]");
@@ -147,8 +181,16 @@
 	            url: BASE_URL_PATIENT + patient_id,
 	        	headers: {'Authorization':'Bearer ' + token,'Accept':'application/json'},
 	            success: function(result) {
-	              console.log("Success");
-	              console.dir(result);
+	            	$("#charts").each(function() {
+					      $(this).show();
+					});
+					getPatientObservations(GLUCOSE_LOINC);
+					getPatientObservations(HR_LOINC);
+					getPatientObservations(WEIGHT_LOINC);
+					getPatientObservations(BP_LOINC);
+					getPatientObservations(STEPS_LOINC);
+					getPatientObservations(ATC_LOINC);
+					plotCharts();
 	            },
 	            error: function(e) {
 	              console.log("[ERROR]");
@@ -156,17 +198,17 @@
 	        });
 		};
 
-		function getPatientObservations(){
+		function getPatientObservations(loinc_code){
 			console.log("Getting Observation");
 			$.ajax({
 	            crossDomain: true,
 	            type:'GET',
-	            url: BASE_URL_OBSERVATION + '?subject:_id=' + patient_id + '&name=' + GLUCOSE_LOINC + '&_sort:asc=date&_count=5',
+	            url: BASE_URL_OBSERVATION + '?subject:_id=' + patient_id + '&name=' + loinc_code + '&_sort:asc=date&_count=5',
 	        	headers: {'Authorization':'Bearer ' + token,'Accept':'application/json'},
 	            success: function(result) {
 	              console.log("Success");
 	              console.log(JSON.stringify(result));
-	              sendData(result, "/glucose");
+	              sendData(result, "/glucose", loinc_code);
 	            },
 	            error: function(e) {
 	              console.log("[ERROR]");
@@ -175,7 +217,7 @@
 
 		}
 
-		function sendData(result, processURL){
+		function sendData(result, processURL, loinc_code){
 			console.log("sending result...");
 	        $.ajax({
                 type: 'POST',
@@ -186,7 +228,8 @@
                 dataType: 'text',
                 headers: {},
                 success: function(result) {
-                  console.log("PERFORM CHART SHOW");
+                  console.log(result);
+                  //patient_data[loinc_code] = result;
                 },
                 error: function(e) {
                   console.log("[ERROR]");
@@ -211,7 +254,7 @@
 		            userId: participantId,
 		            callbackUrl: redirectUrl
 	            });
-	            $("#status").html("Connected to HIPO sesh!");
+	            document.getElementById("status").innerHTML = "Connecting to ooVoo...";
 	        }
 	        else {
 	        	console.log("starting with existing session token");
@@ -245,6 +288,7 @@
 	    }
 	    function onStreamPublished(stream) {
 	    	document.getElementById("localVideo").src = URL.createObjectURL(stream.stream);
+	    	document.getElementById("status").innerHTML = "Connected!";
 	    }
 	    function onParticipantLeft(evt) {
 	        if (evt.uid) {
@@ -261,7 +305,6 @@
 	            videoElement.style.height = "auto";
 	            videoElement.setAttribute("autoplay", true);
 	            document.getElementById("conference-videos").insertBefore(videoElement, document.getElementById("localVideo"));
-	            // document.getElementById("conference-videos").appendChild(videoElement);
 	        }
 	    }
 	    function onConferenceStateChanged(evt) {
@@ -275,6 +318,108 @@
 	        return results === null ? "" : results[1].replace(/\+/g, " ");
 	    }
 
-	    </script>
+	    function plotCharts(){
+	    	document.getElementById('charts').style.visibility = "visible";
+	    	var results = [["7 Sep 2014","10 Sep 2014","12 Sep 2014","13 Sep 2014","17 Sep 2014"],[1,4,8,16,32]];
+		    //chart b
+		    var bData = {
+				labels : results[0],
+				datasets : [
+					{
+						fillColor : "rgba(172,194,132,0.4)",
+						strokeColor : "#ACC26D",
+						pointColor : "#fff",
+						pointStrokeColor : "#9DB86D",
+						data : results[1]
+					}
+				]
+			}
+		    var b = document.getElementById('b').getContext('2d');
+		    new Chart(b).Line(bData);
+		    
+		    //chart c
+		    var cData = {
+				labels : results[0],
+				datasets : [
+					{
+						label: "A1C",
+						fillColor: "rgba(220,220,220,0.5)",
+			            strokeColor: "rgba(220,220,220,0.8)",
+			            highlightFill: "rgba(220,220,220,0.75)",
+			            highlightStroke: "rgba(220,220,220,1)",
+						data : results[1]
+					}
+				]
+			}
+		    var c = document.getElementById('c').getContext('2d');
+		    new Chart(c).Bar(cData);
+
+			//chart a
+		    var aData = {
+				labels : results[0],
+				datasets : [
+					{
+						fillColor : "rgba(172,194,132,0.4)",
+						strokeColor : "#ACC26D",
+						pointColor : "#fff",
+						pointStrokeColor : "#9DB86D",
+						data : results[1]
+					}
+				]
+			}
+		    var a = document.getElementById('a').getContext('2d');
+		    new Chart(a).Line(aData);
+
+		    //chart f
+		    var fData = {
+				labels : results[0],
+				datasets : [
+					{
+						label: "Treatment Options",
+						fillColor: "rgba(220,220,220,0.5)",
+			            strokeColor: "rgba(220,220,220,0.8)",
+			            highlightFill: "rgba(220,220,220,0.75)",
+			            highlightStroke: "rgba(220,220,220,1)",
+						data : results[1]
+					}
+				]
+			}
+		    var f = document.getElementById('f').getContext('2d');
+			new Chart(f).Bar(fData);
+
+		    //chart e
+		    var eData = {
+			labels : results[0],
+			datasets : [
+				{
+						label: "Steps",
+						fillColor: "rgba(220,220,220,0.5)",
+			            strokeColor: "rgba(220,220,220,0.8)",
+			            highlightFill: "rgba(220,220,220,0.75)",
+			            highlightStroke: "rgba(220,220,220,1)",
+						data : results[1]
+					}
+				]
+			}
+		    var e = document.getElementById('e').getContext('2d');
+		    new Chart(e).Bar(eData);
+
+		    //chart d
+		    var dData = {
+			labels : results[0],
+			datasets : [
+					{
+						fillColor : "rgba(172,194,132,0.4)",
+						strokeColor : "#ACC26D",
+						pointColor : "#fff",
+						pointStrokeColor : "#9DB86D",
+						data : results[1]
+					}
+				]
+			}
+		    var d = document.getElementById('d').getContext('2d');
+		    new Chart(d).Line(dData);
+	    }
+	</script>
   	</body>
 </html>
