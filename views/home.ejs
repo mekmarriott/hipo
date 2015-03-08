@@ -32,9 +32,7 @@
 		      	<input align="left" class="btn btn-default" style="width:100px;" id="connect" type="button" value="Connect" />
 		      	<input align="left" class="btn btn-default" style="width:100px;" id="join" type="button" value="Join" />
 	      	</div>
-	      	<div id="logged-in">
-	      		<h2>Welcome!</h2>
-	      	</div>
+	      	<h2 id="logged-in"></h2>
 
 	      	<div id="status"></div>
 	      	<!-- *******end don't change -->
@@ -62,7 +60,10 @@
 					    	Percent of Success <paper-slider id="slider_3"></paper-slider></br>
 					    	Duration of Effectiveness <paper-slider id="slider_4"></paper-slider></br>
 					    </div>
-					    <h2 align="center"><input class="btn btn-default" style="width:300px;" id="analyze" type="button" value="ANALYZE" /></h2>
+					    </br>
+					    <h2 align="center"><input class="btn btn-default" style="width:300px;" id="analyze" type="button" value="Analyze" /></h2>
+					    </br>
+					    </br>
 					<h5>Priorities</h5>
 					<div class="contianer" id="slider-results" align ="center" width="300" height="300">
 						<p>Treatment 1</p>
@@ -94,19 +95,19 @@
 			    </div>
 			    <div class="col-md-4">
 			    	<h5>Glucose</h5>
-					<canvas id="b" width="300" height="300"></canvas>
+					<canvas id="b" width="350" height="300"></canvas>
 					<h5>ATC</h5>
-					<canvas id="c" width="300" height="300"></canvas>
+					<canvas id="c" width="350" height="300"></canvas>
 					<h5>HR</h5>
-			    	<canvas id="a" width="300" height="300"></canvas>
+			    	<canvas id="a" width="350" height="300"></canvas>
 				</div>
 				<div class="col-md-4">
 					<h5>BP</h5>
-					<canvas id="f" width="300" height="300"></canvas>
+					<canvas id="f" width="350" height="300"></canvas>
 					<h5>Weight</h5>
-					<canvas id="d" width="300" height="300"></canvas>
+					<canvas id="d" width="350" height="300"></canvas>
 					<h5>Steps</h5>
-					<canvas id="e" width="300" height="300"></canvas>
+					<canvas id="e" width="350" height="300"></canvas>
 				</div>
 			</div>
 		</div>
@@ -181,7 +182,6 @@
 			$("#charts").each(function() {
 			      $(this).hide();
 			});
-			$("#logged-in").hide();
 			// $("#slider-results").hide();
 		}
 
@@ -241,8 +241,8 @@
 	            url: BASE_URL_PATIENT + patient_id,
 	        	headers: {'Authorization':'Bearer ' + token,'Accept':'application/json'},
 	            success: function(result) {
-	            	// $("#not-logged-in").html($("#logged-in").html())
-	              	$("logged-in").show();
+	            	// console.log(result.name[0].text);
+	            	document.getElementById('logged-in').innerHTML = "Welcome " + result.name[0].text + "!";
 	            	$("#charts").each(function() {
 					      $(this).show();
 					});
@@ -491,11 +491,13 @@
         }
 
         function changeRankings(){
-        	$("#progress_1").style.width = 80 + Math.floor((Math.random() * 20) + 1) + '%';
-        	$("#progress_2").style.width = 70 + Math.floor((Math.random() * 30) + 1) + '%';
-        	$("#progress_3").style.width = 50 + Math.floor((Math.random() * 20) + 1) + '%';
-        	$("#progress_4").style.width = 40 + Math.floor((Math.random() * 10) + 1) + '%';
-        	$("#progress_5").style.width = 10 + Math.floor((Math.random() * 30) + 1) + '%';
+        	// console.log($("#progress_1").progressbar);
+        	$("#progress_1").css("width", 340 + Math.floor((Math.random() * 60) + 1));
+        	$("#progress_2").css("width", 260 + Math.floor((Math.random() * 60) + 1));
+        	$("#progress_3").css("width", 200 + Math.floor((Math.random() * 60) + 1));
+        	$("#progress_4").css("width", 160 + Math.floor((Math.random() * 40) + 1));
+        	$("#progress_5").css("width", 60 + Math.floor((Math.random() * 100) + 1));
+
         }
 	</script>
   	</body>

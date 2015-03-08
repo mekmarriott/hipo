@@ -1,8 +1,10 @@
 applications:
-- disk_quota: 1024M
+- services:
+  - tradeoff_analytics_hipo
+- disk_quota: 2048M
   host: hipo
   name: hipo
   path: .
   domain: mybluemix.net
   instances: 1
-  memory: 256M
+  memory: 512M
