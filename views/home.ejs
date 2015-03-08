@@ -86,11 +86,11 @@
 		var BASE_URL_ORGANIZATION = BASE_FHIR_INFO_URL + "/Organization/";
 		var BASE_URL_OBSERVATION = BASE_FHIR_INFO_URL + "/Observation/";
 		var GLUCOSE_LOINC = "2339-0";
-	    var HR_LOINC = "2339-0";
-	    var WEIGHT_LOINC = "2339-0";
-	    var BP_LOINC = "2339-0";
-	    var STEPS_LOINC = "2339-0";
-	    var ATC_LOINC = "2339-0";
+	    var HR_LOINC = "8867-4";
+	    var WEIGHT_LOINC = "3141-9";
+	    var BP_LOINC = "55284-4";
+	    var STEPS_LOINC = "41950-7";
+	    var ATC_LOINC = "4548-4";
 		var token = null;
 		var patient_id = null;
 		var logged_in = false;
@@ -206,7 +206,7 @@
 	            url: BASE_URL_OBSERVATION + '?subject:_id=' + patient_id + '&name=' + loinc_code + '&_sort:asc=date&_count=5',
 	        	headers: {'Authorization':'Bearer ' + token,'Accept':'application/json'},
 	            success: function(result) {
-	              console.log("Success");
+	              console.log(loinc_code);
 	              console.log(JSON.stringify(result));
 	              sendData(result, "/glucose", loinc_code);
 	            },
@@ -228,8 +228,8 @@
                 dataType: 'text',
                 headers: {},
                 success: function(result) {
-                  console.log(result);
-                  //patient_data[loinc_code] = result;
+                  	console.log(result);
+                  	//patient_data[loinc_code] = result;
                 },
                 error: function(e) {
                   console.log("[ERROR]");
