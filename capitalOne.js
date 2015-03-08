@@ -3,6 +3,8 @@ var xhr = new XMLHttpRequest();
 var user ='struggling';
 var dataType = 'ProjectedForMonth';
 var data = '';
+
+// Below are options for selecting data from Capital One Levels API
 if (user == 'comfortable') {
 	var uid = 1110570164;
 	var token = "119947F2D985C3788998543A3D3AD90C";
@@ -33,7 +35,7 @@ else if (dataType == 'FindSimilar') {
 	var args = {"args": {"uid":  uid, "token":  token, "api-token":  "HackathonApiToken"}, "transaction-ids": []};
 }
 
-
+// Functions for dealing with transaction conversion
 function dateConverter(date) {
 	var rawDate = new Date(date);
 	var intToDay = {}; var intToMonth = {};
@@ -55,13 +57,90 @@ function centocentToDollar(number) {
 	return number*1.0 / 10000;
 }
 
-function collateHistory(dataDict) {
-	for (var i = 0; i < dataDict.transactions; i++) {
-
+// Outputs in line plot format
+function collateHistoryForLine(transactions) {
+	var labels = [];
+	var data = [];
+	var currDate = dateConverter(transactions[0]['transaction-time']);
+	labels.push(dateConverter(transactions[0]['transaction-time']));
+	var daySum = transactions[0].amount;
+	for (var i = 0; i < transactions.length; i++) {
+		if (dateConverter(transactions[i]['transaction-time']) != currDate) {
+			data.push(Number(centocentToDollar(daySum).toFixed(2)));
+			labels.push(dateConverter(transactions[i]['transaction-time']));
+			currDate = dateConverter(transactions[i]['transaction-time']);
+			daySum = transactions[i].amount;
+		}
+		else {
+			daySum += transactions[i].amount;
+		}
 	}
+	data.push(centocentToDollar(daySum));
+	console.log (labels.length);
+	console.log (data.length);
+	return [labels, data];
 }
 
+// Plot of budget with interest payment
+function collatedLoanLine(results) {
+	var labels = results[0];
+	var data = results[1];
+	var budget = 1000;
+	var month = labels[0];
+	var interestPayment = -187.16;
+	for (var i = 0; i < data.length; i++) {
+		if (labels[i] != month) {
+			month = labels[i];
+			data[i] += interestPayment;
+		}
+		data[i] = Number((budget + data[i]).toFixed(2));
+	}
+	return [labels, data];
+}
 
+// Outputs in pie chart format
+function collateHistoryForPieByTxSize(transactions) {
+	var smallTx = 0;
+	var medTx = 0;
+	var lgTx = 0;
+	var supLgTx = 0;
+	for (var i = 0; i < transactions.length; i++) {
+		amnt = centocentToDollar(transactions[i].amount);
+		if (amnt < 0) {
+			amnt = Math.abs(amnt);
+			if (amnt < 25) {smallTx += amnt;}
+			else if (amnt<100) {medTx +=amnt;}
+			else if (amnt<500) {lgTx+=amnt;}
+			else {supLgTx+=amnt;}
+		}
+	}
+	var data = [
+    {
+        value: smallTx,
+        color:"#F7464A",
+        highlight: "#FF5A5E",
+        label: "Small Transactions"
+    },
+    {
+        value: medTx,
+        color: "#46BFBD",
+        highlight: "#5AD3D1",
+        label: "Medium Transactions"
+    },
+    {
+        value: lgTx,
+        color: "#FDB45C",
+        highlight: "#FFC870",
+        label: "Large Transaction"
+    },
+    {
+        value: supLgTx,
+        color: "#551A8B",
+        highlight: "#b19cd9",
+        label: "Very Large Transaction"
+    }];
+    return data;
+}
 
 
 
@@ -74,9 +153,11 @@ xhr.onloadend = function() {
     var pretty = JSON.stringify(parsed, null, 2);
     data = parsed;
     dates = data.transactions.sort(date_sort_asc);
-    docwrite(dates.stringif)
-	docwrite(dateConverter(dates[dates.length-1]['transaction-time']));
-    // document.getElementById('json_returned').textContent = pretty;
+    collatedLine = collateHistoryForLine(dates);
+    collatedPie = collateHistoryForPieByTxSize(dates);
+    collatedLoanLine = collatedLoanLine(collatedLine);
+    docwrite(JSON.stringify(collatedLine));
+    // docwrite(JSON.stringify(collatedLine));
 };
 xhr.onerror = function(err) {
     document.getElementById('json_returned').textContent = "ugh an error. i can't handle this right now.";
@@ -86,30 +167,24 @@ xhr.send(JSON.stringify(args));
 
 
 
-
-var data = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
-    datasets: [
-        {
-            label: "My First dataset",
-            fillColor: "rgba(220,220,220,0.2)",
-            strokeColor: "rgba(220,220,220,1)",
-            pointColor: "rgba(220,220,220,1)",
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(220,220,220,1)",
-            data: [65, 59, 80, 81, 56, 55, 40]
-        },
-        {
-            label: "My Second dataset",
-            fillColor: "rgba(151,187,205,0.2)",
-            strokeColor: "rgba(151,187,205,1)",
-            pointColor: "rgba(151,187,205,1)",
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(151,187,205,1)",
-            data: [28, 48, 40, 19, 86, 27, 90]
-        }
-    ]
-};
+var data = [
+    {
+        value: 300,
+        color:"#F7464A",
+        highlight: "#FF5A5E",
+        label: "Red"
+    },
+    {
+        value: 50,
+        color: "#46BFBD",
+        highlight: "#5AD3D1",
+        label: "Green"
+    },
+    {
+        value: 100,
+        color: "#FDB45C",
+        highlight: "#FFC870",
+        label: "Yellow"
+    }
+]
 
