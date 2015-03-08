@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- ooVoo script -->
 	<script src="https://code.oovoo.com/webrtc/oovoosdk-2.0.0.min.js"></script>
-    <!-- jQuery, for this example  
--->
+    <!-- jQuery, for this example  -->
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" media="screen">
       <style>
       .container {
@@ -32,7 +30,6 @@
   	<script type="text/javascript">
 		var participantId = "UNKNOWN";
 		var participantName = null;
-		// var socket = io(window.location.href);
 		var CONSUMER_KEY = "L11NZgGCutWQkt4F4gMch0GBdW3tFTMd";
 		var CONSUMER_SECRET = "GR2ohAlmJqjGJSlB";
 		var BASE_URL = "https://gateway.api.pcftest.com:9004"; // HTTPS url
@@ -46,10 +43,6 @@
 		var GLUCOSE_LOINC = "2339-0";
 		var token = null;
 		var patient_id = null;
-
-		// socket.on('welcome', function (data) {
-  //           console.log("message: " + data.message);
-  //       });
 
 		$("#login").click(function () {
 			var username = $("#username").val();
@@ -137,17 +130,53 @@
 			$.ajax({
 	            crossDomain: true,
 	            type:'GET',
-	            url: BASE_URL_OBSERVATION + '?subject:_id=' + patient_id + '&name=' + GLUCOSE_LOINC + '&_sort:asc=date&_count=25',
+	            url: BASE_URL_OBSERVATION + '?subject:_id=' + patient_id + '&name=' + GLUCOSE_LOINC + '&_sort:asc=date&_count=5',
 	        	headers: {'Authorization':'Bearer ' + token,'Accept':'application/json'},
 	            success: function(result) {
 	              console.log("Success");
 	              console.log(JSON.stringify(result));
+	              sendData(result, "/glucose");
 	            },
 	            error: function(e) {
 	              console.log("[ERROR]");
 	            }
 	        });
 
+		}
+
+		function sendData(result, processURL){
+			console.log("sending result...");
+			// $.get('/_glucose', JSON.stringify(result), function(data){
+			// 	console.log("PERFORM CHART SHOW");
+			// })
+			// $.ajax({
+	  //           type:'POST',
+	  //           url: url,
+	  //           contentType: 'application/json',
+   //              data: result,
+   //              dataType: 'json',
+	  //           success: function(result) {
+	  //             console.log("PERFORM CHART SHOW");
+	  //           },
+	  //           error: function(e) {
+	  //             console.log("[ERROR]");
+	  //           }
+	  //       });
+	        $.ajax({
+                type: 'POST',
+                url: '/glucose',
+                contentType: 'application/json',
+                headers: {'Accept':'application/json'},
+                data: JSON.stringify(result),
+                dataType: 'text',
+                headers: {},
+                success: function(result) {
+                  console.log("PERFORM CHART SHOW");
+                },
+                error: function(e) {
+                  console.log("[ERROR]");
+                }
+            });
 		}
 
 	    var conference = null;
