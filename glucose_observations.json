@@ -1,0 +1,2277 @@
+{
+  "resourceType": "Bundle",
+  "id": "11fc6931-99c6-462c-a00f-e7b6997e41a4",
+  "published": "2015-03-08T01:35:55.599+00:00",
+  "link": [
+    {
+      "rel": "self",
+      "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/?subject%3A_id=a101&name=2339-0&_sort%3Aasc=date&_count=50"
+    },
+    {
+      "rel": "next",
+      "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest?_getpages=e17ad895-13ec-4489-bd6f-cf9107a2accf&_getpagesoffset=50&_count=50&_format=json"
+    },
+    {
+      "rel": "fhir-base",
+      "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest"
+    }
+  ],
+  "totalResults": "365",
+  "author": [
+    {
+      "name": "Philips FHIR Server"
+    }
+  ],
+  "entry": [
+    {
+      "title": "Observation Observation\/48281\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48281",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48281\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:25.000+00:00",
+      "published": "2015-03-06T02:02:25.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Wed Jan 01 12:15:53 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.94 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.94,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-01-01T14:15:53-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48284\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48284",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48284\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:25.000+00:00",
+      "published": "2015-03-06T02:02:25.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Thu Jan 02 10:22:31 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.61 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.61,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-01-02T12:22:31-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48287\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48287",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48287\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:25.000+00:00",
+      "published": "2015-03-06T02:02:25.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Fri Jan 03 16:51:37 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.77 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.77,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-01-03T18:51:37-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48290\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48290",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48290\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:25.000+00:00",
+      "published": "2015-03-06T02:02:25.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Sat Jan 04 06:20:19 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.66 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.66,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-01-04T08:20:19-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48293\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48293",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48293\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:25.000+00:00",
+      "published": "2015-03-06T02:02:25.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Sun Jan 05 06:15:22 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.61 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.61,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-01-05T08:15:22-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48296\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48296",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48296\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:25.000+00:00",
+      "published": "2015-03-06T02:02:25.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Mon Jan 06 06:43:39 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 6.11 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 6.11,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-01-06T08:43:39-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48299\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48299",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48299\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:25.000+00:00",
+      "published": "2015-03-06T02:02:25.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Tue Jan 07 13:19:38 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.83 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.83,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-01-07T15:19:38-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48302\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48302",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48302\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:25.000+00:00",
+      "published": "2015-03-06T02:02:25.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Wed Jan 08 16:27:55 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.61 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.61,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-01-08T18:27:55-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48305\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48305",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48305\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:25.000+00:00",
+      "published": "2015-03-06T02:02:25.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Thu Jan 09 16:29:04 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.88 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.88,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-01-09T18:29:04-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48308\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48308",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48308\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:25.000+00:00",
+      "published": "2015-03-06T02:02:25.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Fri Jan 10 17:08:27 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 6.11 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 6.11,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-01-10T19:08:27-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48311\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48311",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48311\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:25.000+00:00",
+      "published": "2015-03-06T02:02:25.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Sat Jan 11 09:15:49 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.83 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.83,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-01-11T11:15:49-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48314\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48314",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48314\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:25.000+00:00",
+      "published": "2015-03-06T02:02:25.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Sun Jan 12 07:52:02 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.99 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.99,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-01-12T09:52:02-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48317\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48317",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48317\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:25.000+00:00",
+      "published": "2015-03-06T02:02:25.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Mon Jan 13 12:28:48 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.88 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.88,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-01-13T14:28:48-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48320\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48320",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48320\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:25.000+00:00",
+      "published": "2015-03-06T02:02:25.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Tue Jan 14 06:34:59 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.55 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.55,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-01-14T08:34:59-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48323\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48323",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48323\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:25.000+00:00",
+      "published": "2015-03-06T02:02:25.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Wed Jan 15 14:15:00 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.83 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.83,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-01-15T16:15:00-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48326\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48326",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48326\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:25.000+00:00",
+      "published": "2015-03-06T02:02:25.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Thu Jan 16 11:44:09 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.77 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.77,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-01-16T13:44:09-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48329\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48329",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48329\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:25.000+00:00",
+      "published": "2015-03-06T02:02:25.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Fri Jan 17 07:43:59 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 6.05 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 6.05,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-01-17T09:43:59-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48332\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48332",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48332\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:25.000+00:00",
+      "published": "2015-03-06T02:02:25.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Sat Jan 18 13:53:10 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.61 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.61,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-01-18T15:53:10-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48335\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48335",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48335\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:25.000+00:00",
+      "published": "2015-03-06T02:02:25.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Sun Jan 19 17:05:24 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.77 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.77,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-01-19T19:05:24-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48338\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48338",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48338\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:25.000+00:00",
+      "published": "2015-03-06T02:02:25.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Mon Jan 20 06:28:48 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.83 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.83,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-01-20T08:28:48-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48341\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48341",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48341\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:25.000+00:00",
+      "published": "2015-03-06T02:02:25.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Tue Jan 21 15:33:02 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.77 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.77,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-01-21T17:33:02-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48344\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48344",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48344\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:25.000+00:00",
+      "published": "2015-03-06T02:02:25.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Wed Jan 22 13:43:08 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.61 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.61,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-01-22T15:43:08-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48347\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48347",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48347\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:25.000+00:00",
+      "published": "2015-03-06T02:02:25.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Thu Jan 23 07:04:41 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.99 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.99,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-01-23T09:04:41-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48350\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48350",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48350\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:25.000+00:00",
+      "published": "2015-03-06T02:02:25.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Fri Jan 24 07:44:53 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.83 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.83,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-01-24T09:44:53-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48353\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48353",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48353\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:25.000+00:00",
+      "published": "2015-03-06T02:02:25.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Sat Jan 25 09:07:10 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.72 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.72,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-01-25T11:07:10-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48356\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48356",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48356\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:26.000+00:00",
+      "published": "2015-03-06T02:02:25.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Sun Jan 26 16:52:22 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 6.11 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 6.11,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-01-26T18:52:22-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48359\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48359",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48359\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:26.000+00:00",
+      "published": "2015-03-06T02:02:25.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Mon Jan 27 13:49:47 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.99 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.99,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-01-27T15:49:47-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48362\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48362",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48362\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:26.000+00:00",
+      "published": "2015-03-06T02:02:25.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Tue Jan 28 17:08:38 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.55 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.55,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-01-28T19:08:38-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48365\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48365",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48365\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:26.000+00:00",
+      "published": "2015-03-06T02:02:25.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Wed Jan 29 12:04:24 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.99 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.99,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-01-29T14:04:24-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48368\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48368",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48368\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:26.000+00:00",
+      "published": "2015-03-06T02:02:25.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Thu Jan 30 17:16:53 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.55 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.55,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-01-30T19:16:53-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48371\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48371",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48371\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:26.000+00:00",
+      "published": "2015-03-06T02:02:25.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Fri Jan 31 14:51:59 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.88 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.88,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-01-31T16:51:59-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48374\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48374",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48374\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:26.000+00:00",
+      "published": "2015-03-06T02:02:25.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Sat Feb 01 13:39:13 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.61 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.61,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-02-01T15:39:13-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48377\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48377",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48377\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:26.000+00:00",
+      "published": "2015-03-06T02:02:25.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Sun Feb 02 13:18:54 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.83 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.83,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-02-02T15:18:54-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48380\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48380",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48380\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:26.000+00:00",
+      "published": "2015-03-06T02:02:25.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Mon Feb 03 15:10:13 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.66 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.66,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-02-03T17:10:13-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48383\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48383",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48383\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:26.000+00:00",
+      "published": "2015-03-06T02:02:25.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Tue Feb 04 15:43:49 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.77 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.77,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-02-04T17:43:49-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48386\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48386",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48386\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:26.000+00:00",
+      "published": "2015-03-06T02:02:26.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Wed Feb 05 07:47:07 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.88 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.88,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-02-05T09:47:07-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48389\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48389",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48389\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:26.000+00:00",
+      "published": "2015-03-06T02:02:26.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Thu Feb 06 09:23:30 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 6.05 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 6.05,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-02-06T11:23:30-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48392\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48392",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48392\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:26.000+00:00",
+      "published": "2015-03-06T02:02:26.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Fri Feb 07 16:15:22 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.88 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.88,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-02-07T18:15:22-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48395\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48395",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48395\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:26.000+00:00",
+      "published": "2015-03-06T02:02:26.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Sat Feb 08 15:49:15 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.88 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.88,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-02-08T17:49:15-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48398\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48398",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48398\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:26.000+00:00",
+      "published": "2015-03-06T02:02:26.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Sun Feb 09 14:35:56 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.83 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.83,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-02-09T16:35:56-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48401\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48401",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48401\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:26.000+00:00",
+      "published": "2015-03-06T02:02:26.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Mon Feb 10 16:01:39 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.83 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.83,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-02-10T18:01:39-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48404\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48404",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48404\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:26.000+00:00",
+      "published": "2015-03-06T02:02:26.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Tue Feb 11 15:48:36 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.94 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.94,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-02-11T17:48:36-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48407\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48407",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48407\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:26.000+00:00",
+      "published": "2015-03-06T02:02:26.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Wed Feb 12 12:41:40 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.72 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.72,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-02-12T14:41:40-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48410\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48410",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48410\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:26.000+00:00",
+      "published": "2015-03-06T02:02:26.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Thu Feb 13 14:16:10 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 6.11 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 6.11,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-02-13T16:16:10-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48413\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48413",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48413\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:26.000+00:00",
+      "published": "2015-03-06T02:02:26.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Fri Feb 14 09:20:34 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.94 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.94,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-02-14T11:20:34-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48416\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48416",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48416\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:26.000+00:00",
+      "published": "2015-03-06T02:02:26.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Sat Feb 15 14:47:17 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.88 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.88,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-02-15T16:47:17-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48419\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48419",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48419\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:26.000+00:00",
+      "published": "2015-03-06T02:02:26.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Sun Feb 16 17:11:04 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.99 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.99,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-02-16T19:11:04-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48422\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48422",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48422\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:26.000+00:00",
+      "published": "2015-03-06T02:02:26.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Mon Feb 17 07:50:20 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.99 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.99,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-02-17T09:50:20-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48425\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48425",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48425\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:26.000+00:00",
+      "published": "2015-03-06T02:02:26.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Tue Feb 18 16:00:42 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.61 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.61,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-02-18T18:00:42-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    },
+    {
+      "title": "Observation Observation\/48428\/_history\/1",
+      "id": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48428",
+      "link": [
+        {
+          "rel": "self",
+          "href": "https:\/\/gateway.api.pcftest.com:9004\/v1\/fhir_rest\/Observation\/48428\/_history\/1"
+        }
+      ],
+      "updated": "2015-03-06T02:02:26.000+00:00",
+      "published": "2015-03-06T02:02:26.000+00:00",
+      "content": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http:\/\/www.w3.org\/1999\/xhtml\">Wed Feb 19 10:07:29 PST 2014GMT-06:00: Glucose [Mass\/Volume] in Blood = 5.77 mmol\/l<\/div>"
+        },
+        "name": {
+          "coding": [
+            {
+              "system": "https:\/\/rtmms.nist.gov",
+              "code": "160364",
+              "display": "MDC_CONC_GLU_UNDETERMINED_WHOLEBLOOD"
+            },
+            {
+              "system": "http:\/\/loinc.org",
+              "code": "2339-0",
+              "display": "Blood Glucose"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 5.77,
+          "units": "mmol\/l",
+          "system": "http:\/\/unitsofmeasure.org",
+          "code": "mmol\/l"
+        },
+        "appliesDateTime": "2014-02-19T12:07:29-06:00",
+        "status": "registered",
+        "reliability": "ok",
+        "subject": {
+          "reference": "Patient\/a101"
+        }
+      }
+    }
+  ]
+}
