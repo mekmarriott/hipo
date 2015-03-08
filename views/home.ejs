@@ -36,9 +36,15 @@
 			<div class="col-md-4">
 		    <!-- VIDEO CONFERENCING -->
 		    	<!-- ********don't change the id values for these -->
-		    	<h2 id="status">Not Connected</h2>
-		    	<input id="connect" type="button" value="Connect" />
-	            <video id="localVideo" align="center" style="width:30%; height:auto;" autoplay muted></video>
+		    	<div class="row">
+		    		<h2 id="status">Not Connected</h2>
+		    	</div>
+		    	<div class="row">
+		    		<input id="connect" type="button" value="Connect" />
+		    	</div>
+		    	<div class="row" id="conference-videos">
+	            	<video id="localVideo" align="center" style="width:300px; height:auto;" autoplay muted></video>
+	            </div>
 	            <!-- *******end don't change -->
 			</div>
 			<div class="col-md-4">
@@ -174,22 +180,6 @@
 
 		function sendData(result, processURL){
 			console.log("sending result...");
-			// $.get('/_glucose', JSON.stringify(result), function(data){
-			// 	console.log("PERFORM CHART SHOW");
-			// })
-			// $.ajax({
-	  //           type:'POST',
-	  //           url: url,
-	  //           contentType: 'application/json',
-   //              data: result,
-   //              dataType: 'json',
-	  //           success: function(result) {
-	  //             console.log("PERFORM CHART SHOW");
-	  //           },
-	  //           error: function(e) {
-	  //             console.log("[ERROR]");
-	  //           }
-	  //       });
 	        $.ajax({
                 type: 'POST',
                 url: '/glucose',
@@ -269,8 +259,12 @@
 	            var videoElement = document.createElement("video");
 	            videoElement.id = "vid_" + evt.uid;
 	            videoElement.src = URL.createObjectURL(evt.stream);
+	            videoElement.align="center";
+	            videoElement.style.width = "300px";
+	            videoElement.style.height = "auto";
 	            videoElement.setAttribute("autoplay", true);
-	            document.body.appendChild(videoElement);
+	            document.getElementById("conference-videos").insertBefore(videoElement, document.getElementById("localVideo"));
+	            // document.getElementById("conference-videos").appendChild(videoElement);
 	        }
 	    }
 	    function onConferenceStateChanged(evt) {

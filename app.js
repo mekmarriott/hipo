@@ -48,7 +48,6 @@ app.post('/glucose', express.bodyParser(), function(req, res){
 	console.log(req.body);
 });
 
-
 // The IP address of the Cloud Foundry DEA (Droplet Execution Agent) that hosts this application:
 var host = (process.env.VCAP_APP_HOST || 'localhost');
 // The port on the DEA for communication with the application:
